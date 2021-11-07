@@ -1,6 +1,8 @@
-<p>Soy el componente de productos</p>
+<p>***Soy el componente de productos***</p>
 <h3>{{product.title}}</h3>
-<img [src]="product.image" alt="">
+<p>{{product.id}}</p>
+<img [src]="product.image" alt=""><br>
 <strong>{{product.price}}</strong>
+<button (click)="addCart()">Agregar al carritor</button>
 
 
