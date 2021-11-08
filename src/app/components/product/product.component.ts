@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
         this.productClicked.emit(this.product.id)
     }
 
+    today = new Date();
         
 }
     

@@ -1,7 +1,7 @@
-<h3>{{product.title}}</h3>
+<h3 appHighlight>{{product.title | uppercase}}</h3>
 <p>{{product.id}}</p>
 <img [src]="product.image" alt=""><br>
-<strong>{{product.price}}</strong>
+<strong>{{product.price | currency:'Q'}}</strong>
+<p>{{ product.description | slice:0:10 }}</p>
+<p>{{today | date:'medium'}}</p>
 <button (click)="addCart()">Agregar al carritor</button>
-
-

@@ -10,7 +10,9 @@ export class AppComponent {
     title = 'Market';
     inputItem = '';
     
-    items = ['Carlos', 'Andres', 'Reyes', 'Villacorta', 1996]
+    items = ['Carlos', 'Andres', 'Reyes', 'Villacorta', 1996];
+
+    power = 10;
     
     products: Product[] = [
         {
@@ -69,4 +71,5 @@ export class AppComponent {
     clickProduct(idProducto: number){
         console.log(idProducto)
     }
+
 }

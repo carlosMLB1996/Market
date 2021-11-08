@@ -1,5 +1,8 @@
 <input type="text"  placeholder="Add an item" [(ngModel)]="inputItem">
 
+<input type="text"  placeholder="Potencia cuadrada..." [(ngModel)]="power">
+{{power | exponential}}
+
 <div [ngSwitch]="inputItem">
     <p *ngSwitchCase="'Alo'"> Hola bebe</p>
     <p *ngSwitchCase="'Adios'"> Bye</p>
