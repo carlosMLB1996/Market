@@ -22,8 +22,8 @@
 
 <button (click)="addItem()">Add</button>
 
-<div *ngFor="let x of products" class="products">
-    <app-product (productClicked)="clickProduct($event)" [product]="x"></app-product>
+<div class="product-grid">
+    <app-product *ngFor="let x of products" class="products" (productClicked)="clickProduct($event)" [product]="x"></app-product>
 </div>
 
 <router-outlet></router-outlet>
