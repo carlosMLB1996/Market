@@ -1,0 +1,26 @@
+<input type="text"  placeholder="Add an item" [(ngModel)]="inputItem">
+
+<input type="text"  placeholder="Potencia cuadrada..." [(ngModel)]="power">
+{{power | exponential}}
+
+<div [ngSwitch]="inputItem">
+    <p *ngSwitchCase="'Alo'"> Hola bebe</p>
+    <p *ngSwitchCase="'Adios'"> Bye</p>
+    <p *ngSwitchCase="'Cubo'"> Rubik</p>
+    <p *ngSwitchDefault>Out of stock</p>
+</div>
+
+<div *ngIf="inputItem === '12345';else alo">
+    <h1>Contrasena correcta</h1>
+</div>
+<ng-template #alo>Contrasena incorrecta</ng-template>
+
+<ul>
+    <li *ngIf="items.length < 1"> La lista esta vacia bro.</li>
+    <li *ngFor="let item of items, index as i">
+         {{i+1 + '-'}}{{item}} 
+         <button (click)="deleteItem(i)">Delete</button>
+     </li>
+</ul>
+
+<button (click)="addItem()">Add</button>
