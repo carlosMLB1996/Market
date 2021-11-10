@@ -9,13 +9,15 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeModule } from './components/home/home.module';
 
+import { AdminGuard } from './admin.guard';
+
 const routes: Routes = [
     { path: '', component: LayoutComponent, children: [
         { path: '', redirectTo: '/home', pathMatch: 'full'},
         { path: 'home', loadChildren:() => import('./components/home/home.module').then(m => m.HomeModule) },
         { path: 'products', component: ProductListComponent },
         { path: 'products/:id', component: ProductDetailComponent },
-        { path: 'contact', component: ContactComponent },
+        { path: 'contact', component: ContactComponent, canActivate: [AdminGuard] },
     ]},
     { path: 'demo', component: DemoComponent },
     { path: '**', component: PageNotFoundComponent },
