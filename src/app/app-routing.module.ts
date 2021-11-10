@@ -5,12 +5,15 @@ import { ProductComponent  } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'products', component: ProductListComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'demo', component: DemoComponent },
+    { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
