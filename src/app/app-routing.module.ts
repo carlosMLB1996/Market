@@ -19,6 +19,7 @@ const routes: Routes = [
         { path: 'products/:id', component: ProductDetailComponent },
         { path: 'contact', component: ContactComponent, canActivate: [AdminGuard] },
     ]},
+    { path: 'admin', loadChildren:() => import('./admin/admin.module').then(m => m.AdminModule) },
     { path: 'demo', component: DemoComponent },
     { path: '**', component: PageNotFoundComponent },
 ];
