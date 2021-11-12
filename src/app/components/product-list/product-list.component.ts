@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 
+
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
@@ -9,18 +10,25 @@ import { ProductsService } from 'src/app/core/services/products/products.service
 })
 export class ProductListComponent implements OnInit {
 
-    products: Product[];
+    products: Product[] = [];
     
     constructor(
         private productsService: ProductsService
     ) { }
     
     ngOnInit(): void {
-        this.products = this.productsService.getAllProducts();
+        this.fetchProduct();
     }
 
     clickProduct(idProducto: number){
         console.log(idProducto)
+    }
+
+    fetchProduct(){
+        this.productsService.getAllProducts().subscribe(products => {
+            console.log(products);
+            this.products = products; 
+        })
     }
     
 }
