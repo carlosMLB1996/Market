@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeModule } from './components/home/home.module';
+import { OrderModule } from './order/order.module';
 
 import { AdminGuard } from './admin.guard';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
         { path: 'products', component: ProductListComponent },
         { path: 'products/:id', component: ProductDetailComponent },
         { path: 'contact', component: ContactComponent, canActivate: [AdminGuard] },
+        { path: 'order', loadChildren:() => import('./order/order.module').then(m => m.OrderModule)},
     ]},
     { path: 'admin', loadChildren:() => import('./admin/admin.module').then(m => m.AdminModule) },
     { path: 'demo', component: DemoComponent },
